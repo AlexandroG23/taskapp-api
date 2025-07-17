@@ -34,3 +34,23 @@ API RESTful desarrollada con **Spring Boot** para la gestión de tareas personal
 ```bash
 git clone https://github.com/TU_USUARIO/taskapp-backend.git
 cd taskapp-backend
+```
+
+### 2. Configurar base de datos
+Crea una base de datos MySQL llamada taskapp_db (o la que prefieras) y configura tu conexión en `application.properties`:
+
+```bash
+spring.datasource.url=jdbc:mysql://localhost:3306/taskapp_db
+spring.datasource.username=tu_usuario
+spring.datasource.password=tu_contraseña
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+### 3. Ejecutar la app
+
+```bash
+./mvnw spring-boot:run
+```
+> **Nota:** El **backend** se ejecutará por defecto en `http://localhost:8090`
