@@ -78,8 +78,8 @@ Authorization: Bearer tu_token_jwt
 |-------|----------------|--------------------------|
 |GET    |`/tasks`        |Listar tareas del usuario |
 |POST   |`/tasks`        |Crear nueva tarea         |
-|PUT    |`/tasks/{id}`.  |Editar tarea              |
-|DELETE |`/tasks/{id}`.  |Eliminar tarea            |
+|PUT    |`/tasks/{id}`   |Editar tarea              |
+|DELETE |`/tasks/{id}`   |Eliminar tarea            |
 > 🔒 Todos protegidos con **JWT**
 
 ### 👑 Panel Admin
@@ -100,13 +100,4 @@ O insertar manualmente en la base de datos:
 ```bash
 UPDATE users SET role = 'ADMIN' WHERE email = 'admin@email.com';
 ```
-## 📁 Estructura del proyecto
-taskapp-backend/
-├── controller/
-├── dto/
-├── model/
-├── repository/
-├── security/
-├── service/
-└── ...
 
