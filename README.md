@@ -54,3 +54,59 @@ spring.jpa.show-sql=true
 ./mvnw spring-boot:run
 ```
 > **Nota:** El **backend** se ejecutará por defecto en `http://localhost:8090`
+
+## 🔐 Autenticación
+Se utiliza JWT para proteger rutas.
+Al hacer login, obtienes un token que debes incluir en cada petición:
+
+```bash
+Authorization: Bearer tu_token_jwt
+```
+
+## 📚 Endpoints principales
+
+### 🔐 Autenticación
+
+|Método |Endpoint          |Descripción         |
+|-------|------------------|--------------------|
+|POST   |`/auth/register`  |Registro de usuario |
+|POST   |`/auth/login`     |Login y JWT token.  |
+
+### ✅ Tareas
+
+|Método |Endpoint        |Descripción               |
+|-------|----------------|--------------------------|
+|GET    |`/tasks`        |Listar tareas del usuario |
+|POST   |`/tasks`        |Crear nueva tarea         |
+|PUT    |`/tasks/{id}`.  |Editar tarea              |
+|DELETE |`/tasks/{id}`.  |Eliminar tarea            |
+> 🔒 Todos protegidos con **JWT**
+
+### 👑 Panel Admin
+
+|Método |Endpoint                    |Descripción               |
+|-------|----------------------------|--------------------------|
+|GET    |`/admin/usuarios`           |Ver todos los usuarios    |
+|POST   |`/admin/usuarios/inactivos` |Ver usuarios inactivos    |
+|PUT    |`/admin/promote/{email}`    |Promover a ADMIN          |
+|DELETE |`/admin/deactivate/{email}` |Desactivar cuenta         |
+|PUT.   |`/admin/reactivate/{email}` |Reactivar cuenta          |
+> 🔒 Acceso solo para `ROLE_ADMIN`
+
+## 🧪 Datos de prueba
+Puedes crear usuarios normales y luego promoverlos vía endpoint admin.
+O insertar manualmente en la base de datos:
+
+```bash
+UPDATE users SET role = 'ADMIN' WHERE email = 'admin@email.com';
+```
+## 📁 Estructura del proyecto
+taskapp-backend/
+├── controller/
+├── dto/
+├── model/
+├── repository/
+├── security/
+├── service/
+└── ...
+
