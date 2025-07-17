@@ -56,6 +56,7 @@ spring.jpa.show-sql=true
 > **Nota:** El **backend** se ejecutará por defecto en `http://localhost:8090`
 
 ## 🔐 Autenticación
+
 Se utiliza JWT para proteger rutas.
 Al hacer login, obtienes un token que debes incluir en cada petición:
 
@@ -90,10 +91,11 @@ Authorization: Bearer tu_token_jwt
 |POST   |`/admin/usuarios/inactivos` |Ver usuarios inactivos    |
 |PUT    |`/admin/promote/{email}`    |Promover a ADMIN          |
 |DELETE |`/admin/deactivate/{email}` |Desactivar cuenta         |
-|PUT.   |`/admin/reactivate/{email}` |Reactivar cuenta          |
+|PUT    |`/admin/reactivate/{email}` |Reactivar cuenta          |
 > 🔒 Acceso solo para `ROLE_ADMIN`
 
 ## 🧪 Datos de prueba
+
 Puedes crear usuarios normales y luego promoverlos vía endpoint admin.
 O insertar manualmente en la base de datos:
 
